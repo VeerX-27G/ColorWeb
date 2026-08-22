@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ColorWeb - Palette Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload Image for Color Palette</h1>
+
+    <!-- Upload Form -->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Upload & Process</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <!-- Display Results -->
+    {% if colors %}
+        <h2>Top 10 Colors:</h2>
+        <div class="palette">
+            {% for color_hex in colors %}
+                <div class="color-card" style="background-color: {{ color_hex }};">
+                    {{ color_hex }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>

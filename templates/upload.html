@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Extracted Color Palette</h1>
+    <a href="/">&larr; Upload another image</a>
+
+    <div class="palette">
+        {% for color_hex in colors %}
+            <div class="color-card" style="background-color: {{ color_hex }};">
+                {{ color_hex }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

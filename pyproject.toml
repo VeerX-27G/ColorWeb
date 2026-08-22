@@ -1,0 +1,9 @@
+[project]
+name = "day-92-image-colour-palette-generator"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "flask",
+    "numpy",
+    "pillow",
+]
